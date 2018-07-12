@@ -9,13 +9,13 @@ app.get("/segment",function(req,res){
   if (req.query && req.query.text) {
     exec('python3 main.py ' + req.query.text, function(err, response, terminalerr) {
       if (err) {
-        res.json(req.query.text);
+        res.json(null);
       } else if(response) {
-        res.json(response);
+        res.json(JSON.parse(response));
       }
     });
   } else {
-    res.json("");
+    res.json(null);
   }
 })
 
