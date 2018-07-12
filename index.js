@@ -11,7 +11,7 @@ app.get("/segment",function(req,res){
       if (err) {
         res.json(null);
       } else if(response) {
-        res.json(JSON.parse(response));
+        res.json(JSON.parse(response.split("'").join('"')));
       }
     });
   } else {
